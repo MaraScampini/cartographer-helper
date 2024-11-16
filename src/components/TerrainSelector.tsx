@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface OnClickProps {
     terrain: string,
@@ -8,7 +8,9 @@ interface OnClickProps {
 interface TerrainSelectorProps {
     onClick: (props: OnClickProps) => void
 }
-const TerrainSelector: React.FC<TerrainSelectorProps>= ({onClick}) => {
+const TerrainSelector: React.FC<TerrainSelectorProps> = ({ onClick }) => {
+
+    const [selectedTerrain, setSelectedTerrain] = useState<string | null>(null);
     const terrains = {
         "houses": <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-home">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -46,12 +48,19 @@ const TerrainSelector: React.FC<TerrainSelectorProps>= ({onClick}) => {
         </svg>
     };
 
+    const handleClick = (terrain: string, svg: JSX.Element) => {
+        setSelectedTerrain(terrain); // Set the selected terrain
+        onClick({ terrain, svg }); // Call the onClick prop
+    };
+
 
     return (
-        <div className="m-3 flex gap-2">
-            {Object.entries(terrains).map(([terrain,svg]) => (
-                <div key={terrain} onClick={() => onClick({terrain, svg})} className={`h-20 w-20 bg-${terrain} flex justify-center items-center`}>
-                    {React.cloneElement(svg, {stroke: "white"})}
+        <div className="m-3 flex gap-3">
+            {Object.entries(terrains).map(([terrain, svg]) => (
+                <div key={terrain}
+                    onClick={() => handleClick(terrain, svg)}
+                    className={`h-20 w-20 rounded-md bg-${terrain} flex justify-center items-center ${selectedTerrain === terrain ? 'shadow-[inset_5px_4px_10px_1px_rgba(0,_0,_0,_0.2),10px_9px_20px_1px_rgba(255,_255,_255,_0.05)] border-b border-r border-white' : ''}`}>
+                    {React.cloneElement(svg, { stroke: "white" })}
                 </div>
             ))}
         </div>
