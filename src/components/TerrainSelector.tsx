@@ -50,7 +50,7 @@ const TerrainSelector: React.FC<TerrainSelectorProps>= ({onClick}) => {
     return (
         <div className="m-3 flex gap-2">
             {Object.entries(terrains).map(([terrain,svg]) => (
-                <div onClick={() => onClick({terrain, svg})} className={`h-20 w-20 bg-${terrain} flex justify-center items-center`}>
+                <div key={terrain} onClick={() => onClick({terrain, svg})} className={`h-20 w-20 bg-${terrain} flex justify-center items-center`}>
                     {React.cloneElement(svg, {stroke: "white"})}
                 </div>
             ))}

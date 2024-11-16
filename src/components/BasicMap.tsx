@@ -67,20 +67,22 @@ const BasicMap: React.FC<BasicMapProps> = ({ terrain, icon, boardType }) => {
   const MemoizedCell = React.memo(Cell);
 
   return (
-    <div className="grid grid-cols-11 gap-0">
-      {board.map((cellType, index) => (
-        <MemoizedCell
-          key={index}
-          x={index % BOARD_SIZE}
-          y={Math.floor(index / BOARD_SIZE)}
-          available={cellType.available}
-          backgroundColor={cellType.background}
-          blocked={cellType.blocked}
-          onClick={() => handleCellClick(index)}
-          icon={cellType.icon}
-          type={cellType.type}
-        />
-      ))}
+    <div className="border border-solid border-black p-1">
+      <div className="grid grid-cols-11 gap-0 border border-solid border-black">
+        {board.map((cellType, index) => (
+          <MemoizedCell
+            key={index}
+            x={index % BOARD_SIZE}
+            y={Math.floor(index / BOARD_SIZE)}
+            available={cellType.available}
+            backgroundColor={cellType.background}
+            blocked={cellType.blocked}
+            onClick={() => handleCellClick(index)}
+            icon={cellType.icon}
+            type={cellType.type}
+          />
+        ))}
+      </div>
     </div>
   );
 };
