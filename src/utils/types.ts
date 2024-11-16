@@ -1,9 +1,10 @@
 // types.ts
 export interface CellState {
-    type: string;
+    background: string;
     blocked: boolean;
     available: boolean;
     icon: JSX.Element | null;
+    type: string;
   }
   
   export interface BasicMapProps {

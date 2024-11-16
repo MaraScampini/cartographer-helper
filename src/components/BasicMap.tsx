@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import Cell from "./Cell";
 import { BasicMapProps, CellState } from "../utils/types";
 import { generateDefaultBoard } from "../boards/defaultBoard";
+import RuinSvg from "../assets/RuinSvg";
 
 const BOARD_SIZE = 11;
 
@@ -27,25 +28,35 @@ const BasicMap: React.FC<BasicMapProps> = ({ terrain, icon, boardType }) => {
       const currentCell = newBoard[index];
 
       if (currentCell.blocked) {
-        // Do nothing if the cell is blocked
         return newBoard;
       }
 
-      if (currentCell.type === terrain) {
-        // If clicking on a cell with the same terrain, set it to empty
+      if (currentCell.type === "ruin" && currentCell.background !== "ruin") {
+        // IF THE CELL WAS A RUIN AND IS FILLED, GO BACK TO RUIN
         newBoard[index] = {
-          type: "empty",
+          background: "ruin",
           blocked: false,
           available: true,
-          icon: null
+          icon: <RuinSvg />,
+          type: "ruin"
+        };
+      } else if (currentCell.background === terrain) {
+        // IF THE CELL IS FILLED, GO BACK TO EMPTY
+        newBoard[index] = {
+          background: "empty",
+          blocked: false,
+          available: true,
+          icon: null,
+          type: "empty"
         };
       } else {
-        // If clicking on an empty cell or a cell with different terrain, update it
+        // IF THE CELL IS EMPTY, FILL IT WITH THE PLAYER CHOSEN TERRAIN
         newBoard[index] = {
-          type: terrain,
+          background: terrain,
           blocked: false,
           available: false,
-          icon: icon
+          icon: icon,
+          type: newBoard[index].type
         };
       }
 
@@ -63,10 +74,11 @@ const BasicMap: React.FC<BasicMapProps> = ({ terrain, icon, boardType }) => {
           x={index % BOARD_SIZE}
           y={Math.floor(index / BOARD_SIZE)}
           available={cellType.available}
-          backgroundColor={cellType.type}
+          backgroundColor={cellType.background}
           blocked={cellType.blocked}
           onClick={() => handleCellClick(index)}
           icon={cellType.icon}
+          type={cellType.type}
         />
       ))}
     </div>

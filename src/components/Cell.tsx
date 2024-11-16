@@ -6,6 +6,7 @@ interface CellProps {
     available: boolean;
     blocked: boolean;
     backgroundColor: string;
+    type: string;
     onClick: () => void;
     icon: JSX.Element | null;
 }
