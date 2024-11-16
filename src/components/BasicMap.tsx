@@ -1,48 +1,24 @@
 import React, { useEffect, useState, useCallback } from "react";
 import Cell from "./Cell";
-
-interface BasicMapProps {
-  terrain: string;
-  icon: JSX.Element | null;
-}
-
-interface CellState {
-  type: string;
-  blocked: boolean;
-  available: boolean;
-  icon: JSX.Element | null;
-}
+import { BasicMapProps, CellState } from "../utils/types";
+import { generateDefaultBoard } from "../boards/defaultBoard";
 
 const BOARD_SIZE = 11;
-const TOTAL_CELLS = BOARD_SIZE * BOARD_SIZE;
 
-const BasicMap: React.FC<BasicMapProps> = ({ terrain, icon }) => {
+const BasicMap: React.FC<BasicMapProps> = ({ terrain, icon, boardType }) => {
   const [board, setBoard] = useState<CellState[]>([]);
 
   useEffect(() => {
-    // Initialize the board
-    const initialBoard = Array(TOTAL_CELLS).fill({
-      type: "empty",
-      blocked: false,
-      available: true,
-      icon: null
-    });
-    // Set initial mountains and ruins
-    [13, 28, 31, 55, 77, 97].forEach(index => initialBoard[index] = {
-      type: "mountain",
-      blocked: true,
-      available: false,
-      icon: null
-
-    });
-    [12, 18, 28, 52, 89, 95, 108].forEach(index => initialBoard[index] = {
-      type: "ruin",
-      blocked: false,
-      available: true,
-      icon: null
-    });
+    let initialBoard: CellState[];
+    switch (boardType) {
+      case "basic":
+        initialBoard = generateDefaultBoard();
+        break;
+      default:
+        initialBoard = generateDefaultBoard();
+    }
     setBoard(initialBoard);
-  }, []);
+  }, [boardType]);
 
   const handleCellClick = useCallback((index: number) => {
     if (terrain === "") return;

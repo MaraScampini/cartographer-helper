@@ -19,7 +19,7 @@ const PlayMat = () => {
   return (
     <div className="flex flex-col justify-center items-center">
         <TerrainSelector onClick={handleChangeTerrainType}/>
-        <BasicMap terrain={terrain} icon={svg}/>
+        <BasicMap terrain={terrain} icon={svg} boardType="basic"/>
         <Coins/>
         <Punctuation/>
     </div>
