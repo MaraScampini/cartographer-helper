@@ -16,7 +16,7 @@ export const generateDefaultBoard = (): CellState[] => {
     });
 
     // Set initial mountains
-    [13, 28, 31, 55, 77, 97].forEach(index => board[index] = {
+    [14, 30, 60, 90, 106].forEach(index => board[index] = {
         background: "mountain",
         blocked: true,
         available: false,
@@ -25,7 +25,7 @@ export const generateDefaultBoard = (): CellState[] => {
     });
 
     // Set initial ruins
-    [12, 18, 28, 52, 89, 95, 108].forEach(index => board[index] = {
+    [16, 23, 31, 89, 97, 104].forEach(index => board[index] = {
         background: "ruin",
         blocked: false,
         available: true,
