@@ -13,7 +13,7 @@ interface CellProps {
 const Cell: React.FC<CellProps> = ({ backgroundColor, onClick, blocked, icon }) => {
     return (
         <div
-            className={`bg-${backgroundColor} w-20 h-20 flex justify-center items-center border border-dashed border-[#b6a162]`}
+            className={`bg-${backgroundColor} w-16 h-16 flex justify-center items-center border border-dashed border-[#b6a162]`}
             onClick={blocked ? undefined : onClick}
         >
             {icon}
