@@ -49,8 +49,8 @@ const TerrainSelector: React.FC<TerrainSelectorProps> = ({ onClick }) => {
     };
 
     const handleClick = (terrain: string, svg: JSX.Element) => {
-        setSelectedTerrain(terrain); // Set the selected terrain
-        onClick({ terrain, svg }); // Call the onClick prop
+        setSelectedTerrain(terrain); 
+        onClick({ terrain, svg }); 
     };
 
 
