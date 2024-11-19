@@ -6,12 +6,21 @@ type SelectedIndexes = {
 const Coins = () => {
   const [selectedIndexes, setSelectedIndexes] = useState<SelectedIndexes>({});
 
+  const [isClicking, setIsClicking] = useState(false);
+
   const handleClick = (index: number): void => {
+    if (isClicking) return; // Ignore if already clicking
+    setIsClicking(true);
+    
     setSelectedIndexes((prevState) => ({
       ...prevState,
       [index]: !prevState[index]
-    }))
-  }
+    }));
+  
+    setTimeout(() => {
+      setIsClicking(false); // Reset after a short delay
+    }, 300); // Adjust delay as needed
+  };
 
   return (
     <div className="mt-5 flex justify-center items-center space-x-2 p-3 bg-ruin rounded-lg">
