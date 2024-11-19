@@ -17,7 +17,7 @@ const PlayMat = () => {
         setSvg(svg);
     }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center pt-10">
         <TerrainSelector onClick={handleChangeTerrainType}/>
         <BasicMap terrain={terrain} icon={svg} boardType="basic"/>
         <Coins/>

@@ -5,32 +5,38 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      'klee': ['Klee One']
+    },
     extend: {
       colors: {
         houses: {
-          DEFAULT: "#d60000"
+          DEFAULT: "#fec79c"
         },
         water: {
-          DEFAULT: "#2ad8e7"
+          DEFAULT: "#adeaff"
         },
         farm: {
-          DEFAULT: "#ffc32f"
+          DEFAULT: "#fffbad"
         },
         forest: {
-          DEFAULT: "#33b000"
+          DEFAULT: "#d9fe9c"
         },
         monster: {
-          DEFAULT: "#aa2fff"
+          DEFAULT: "#ccadff"
         },
         empty: {
-          DEFAULT: "#f4eede"
+          DEFAULT: "#fcf6ec"
         },
         mountain: {
-          DEFAULT: "#5c4b21"
+          DEFAULT: "#b69880"
         },
         ruin: {
-          DEFAULT: "#dcd7c8"
-        }
+          DEFAULT: "#e7d7cb"
+        },
+        lightBackground: {
+          DEFAULT: "#f1f1f1"
+        },
       }
     },
   },
