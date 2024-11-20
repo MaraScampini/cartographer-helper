@@ -8,15 +8,18 @@ const Coins = () => {
 
   const [isClicking, setIsClicking] = useState(false);
 
-  const handleClick = (index: number, e: React.TouchEvent | React.MouseEvent): void => {
-    e.preventDefault();
+  const handleClick = (index: number): void => {
     if (isClicking) return;
     setIsClicking(true);
+
+    console.log("event")
 
     setSelectedIndexes((prevState) => ({
       ...prevState,
       [index]: !prevState[index]
     }));
+
+    console.log("index set : " + index + " " + selectedIndexes[index]);
 
     setTimeout(() => {
       setIsClicking(false);
@@ -26,7 +29,7 @@ const Coins = () => {
   return (
     <div className="mt-5 flex justify-center items-center space-x-2 p-3 bg-ruin rounded-lg">
       {[...Array(14)].map((_, index) => (
-        <div onClick={(e) => handleClick(index, e)} onTouchStart={(e) => handleClick(index, e)} key={index}
+        <div onClick={() => handleClick(index)} onTouchStart={() => handleClick(index)} key={index}
           className={`w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center shadow-md hover:cursor-pointer ${selectedIndexes[index] ? 'bg-purple-500 shadow-[inset_1px_1px_1px_1px_rgba(0,_0,_0,_0.3)]' : ''
             }`}
         >
