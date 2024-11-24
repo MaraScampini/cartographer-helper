@@ -12,14 +12,10 @@ const Coins = () => {
     if (isClicking) return;
     setIsClicking(true);
 
-    console.log("event")
-
     setSelectedIndexes((prevState) => ({
       ...prevState,
       [index]: !prevState[index]
     }));
-
-    console.log("index set : " + index + " " + selectedIndexes[index]);
 
     setTimeout(() => {
       setIsClicking(false);
@@ -33,7 +29,6 @@ const Coins = () => {
           className={`w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center shadow-md hover:cursor-pointer ${selectedIndexes[index] ? 'shadow-selected-coin' : ''
             }`}
         >
-
         </div>
       ))}
     </div>
