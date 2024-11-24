@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .selectedCoin {
+        @apply bg-purple-500 shadow-[inset_1px_1px_1px_1px_rgba(0,_0,_0,_0.3)];
+    }
+}

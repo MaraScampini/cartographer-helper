@@ -9,6 +9,9 @@ export default {
       'klee': ['Klee One']
     },
     extend: {
+      boxShadow: {
+        'selected-coin': 'inset 1px 1px 1px 1px rgba(0,0,0,0.3)'
+      },
       colors: {
         houses: {
           DEFAULT: "#fec79c"
