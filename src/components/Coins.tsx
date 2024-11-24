@@ -1,11 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type SelectedIndexes = {
   [key: number]: boolean;
 }
 const Coins = () => {
-  const [selectedIndexes, setSelectedIndexes] = useState<SelectedIndexes>({});
-
+  const [selectedIndexes, setSelectedIndexes] = useState<SelectedIndexes>(() => {
+    const storedItems = localStorage.getItem('selectedItems');
+    return storedItems ? JSON.parse(storedItems) : {};
+  });
   const [isClicking, setIsClicking] = useState(false);
 
   const handleClick = (index: number): void => {
@@ -17,10 +19,16 @@ const Coins = () => {
       [index]: !prevState[index]
     }));
 
+
     setTimeout(() => {
       setIsClicking(false);
     }, 300);
+
   };
+
+  useEffect(() => {
+    localStorage.setItem('selectedItems', JSON.stringify(selectedIndexes));
+  }, [selectedIndexes])
 
   return (
     <div className="mt-5 flex justify-center items-center space-x-2 p-3 bg-ruin rounded-lg">
