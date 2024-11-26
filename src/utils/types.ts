@@ -1,4 +1,3 @@
-// types.ts
 export interface CellState {
     background: string;
     blocked: boolean;

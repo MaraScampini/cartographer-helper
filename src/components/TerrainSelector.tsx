@@ -29,7 +29,6 @@ const TerrainSelector: React.FC<TerrainSelectorProps> = ({ onClick }) => {
         onClick({ terrain, svg }); 
     };
 
-
     return (
         <div className="flex flex-col items-center justify-center">
             <p className="font-klee font-semibold text-xl">select terrain</p>
