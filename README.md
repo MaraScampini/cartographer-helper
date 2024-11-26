@@ -2,7 +2,9 @@
 
 This was thought as an add-on to the board game Cartographers.
 
-It is a roleplaying writing game consisting of a map in a sheet of paper where the player has to draw shapes to fulfill missions.
+It is developed using React and TypeScript and [deployed in Railway](https://cartographer-helper-production.up.railway.app).
+
+Cartographers is a roleplaying writing game consisting of a map in a sheet of paper where the player has to draw shapes to fulfill missions.
 
 ![board](image.png)
 
