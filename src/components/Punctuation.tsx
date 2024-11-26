@@ -127,7 +127,7 @@ const Punctuation = () => {
 
 
   return (
-    <div className="flex gap-x-3 py-2">
+    <div className="flex flex-wrap gap-3 py-2">
       {rounds.map((item, index) => renderPunctuation(item, index))}
     </div>
   )

@@ -29,7 +29,7 @@ const Coins = () => {
   }, [selectedIndexes])
 
   return (
-    <div className="mt-5 flex justify-center items-center space-x-2 p-3 bg-ruin rounded-lg">
+    <div className="mt-5 grid grid-cols-7 md:flex gap-4 justify-center items-center p-3 bg-ruin rounded-lg">
       {[...Array(14)].map((_, index) => (
         <div onClick={() => handleClick(index)} onTouchStart={() => handleClick(index)} key={index}
           className={`w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center shadow-md hover:cursor-pointer ${selectedIndexes[index] ? 'shadow-selected-coin' : ''

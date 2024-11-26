@@ -37,7 +37,7 @@ const TerrainSelector: React.FC<TerrainSelectorProps> = ({ onClick }) => {
                 {Object.entries(terrains).map(([terrain, svg]) => (
                     <div key={terrain}
                         onClick={() => handleClick(terrain, svg)}
-                        className={`h-20 w-20 rounded-md bg-${terrain} flex justify-center items-center hover:cursor-grab ${selectedTerrain === terrain ? 'shadow-[inset_2px_2px_1px_1px_rgba(0,_0,_0,_0.2)] border-b border-r border-white' : ''}`}>
+                        className={`h-12 w-12 md:h-20 md:w-20 rounded-md bg-${terrain} flex justify-center items-center hover:cursor-grab ${selectedTerrain === terrain ? 'shadow-[inset_2px_2px_1px_1px_rgba(0,_0,_0,_0.2)] border-b border-r border-white' : ''}`}>
                         {React.cloneElement(svg, { stroke: "#6c6c6c" })}
                     </div>
                 ))
