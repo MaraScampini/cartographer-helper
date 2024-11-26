@@ -31,7 +31,12 @@ const Punctuation = () => {
     round3: {},
     round4: {}
   });
-  const [totals, setTotals] = useState<Totals>({});
+  const [totals, setTotals] = useState<Totals>({
+    round1: 0,
+    round2: 0,
+    round3: 0,
+    round4: 0
+  });
   const rounds: RoundKey[] = ["round1", "round2", "round3", "round4"];
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>, round: RoundKey) => {
     const { name, value } = e.target;
@@ -55,14 +60,12 @@ const Punctuation = () => {
 
   useEffect(() => {
     const newTotals: Totals = {};
-  
+
     rounds.forEach((round) => {
       const currentRound = punctuation[round];
-      if (Object.keys(currentRound).length === 4) {
-        newTotals[round] = calculateTotal(currentRound);
-      }
+      newTotals[round] = calculateTotal(currentRound);
     });
-  
+
     setTotals(newTotals);
   }, [punctuation]);
 
