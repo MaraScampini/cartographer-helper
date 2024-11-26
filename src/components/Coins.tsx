@@ -5,7 +5,7 @@ type SelectedIndexes = {
 }
 const Coins = () => {
   const [selectedIndexes, setSelectedIndexes] = useState<SelectedIndexes>(() => {
-    const storedItems = localStorage.getItem('selectedItems');
+    const storedItems = sessionStorage.getItem('selectedItems');
     return storedItems ? JSON.parse(storedItems) : {};
   });
   const [isClicking, setIsClicking] = useState(false);
@@ -25,7 +25,7 @@ const Coins = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('selectedItems', JSON.stringify(selectedIndexes));
+    sessionStorage.setItem('selectedItems', JSON.stringify(selectedIndexes));
   }, [selectedIndexes])
 
   return (
