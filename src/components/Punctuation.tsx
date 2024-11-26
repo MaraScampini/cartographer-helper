@@ -33,36 +33,40 @@ const Punctuation = () => {
       <div className="grid grid-cols-2">
         <div className="p-2">
           <input
-            className="max-w-10 bg-transparent"
+            className="max-w-10 bg-transparent border border-black rounded-md text-center"
             name="round1a"
             type="number"
+            pattern="[0-9]*"
             value={punctuation.round1a}
             onChange={(e) => handleInput(e)}
           />
         </div>
         <div className="p-2">
           <input
-            className="max-w-10 bg-transparent"
+            className="max-w-10 bg-transparent border border-black rounded-md text-center"
             name="round1b"
             type="number"
+            pattern="[0-9]*"
             value={punctuation.round1b}
             onChange={(e) => handleInput(e)}
           />
         </div>
         <div className="p-2">
           <input
-            className="max-w-10 bg-transparent"
+            className="max-w-10 bg-transparent border border-black rounded-md text-center"
             name="round1coin"
             type="number"
+            pattern="[0-9]*"
             value={punctuation.round1coin}
             onChange={(e) => handleInput(e)}
           />
         </div>
         <div className="p-2">
           <input
-            className="max-w-10 bg-transparent"
+            className="max-w-10 bg-transparent border border-black rounded-md text-center"
             name="round1monster"
             type="number"
+            pattern="[0-9]*"
             value={punctuation.round1monster}
             onChange={(e) => handleInput(e)}
           />
