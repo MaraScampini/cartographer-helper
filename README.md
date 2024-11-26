@@ -6,11 +6,11 @@ It is developed using React and TypeScript and [deployed in Railway](https://car
 
 Cartographers is a roleplaying writing game consisting of a map in a sheet of paper where the player has to draw shapes to fulfill missions.
 
-![board](image.png)
+![board](./assets/image.png)
 
 These sheets are limited, so I wanted to make a helper iPad-friendly resource that could act as a sheet and where the player could play just as they would on paper. This would act as an extension of the board game and not replace it, so the players would still need the physical game to play, as it contains all the quests and other cards necessary.
 
-![web](image-1.png)
+![web](./assets/image-1.png)
 
 The player can launch the website on their iPad, select terrains from the upper selector and place them on the map. They can also touch the coins to mark them as obtained.
 
