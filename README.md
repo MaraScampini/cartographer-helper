@@ -1,50 +1,20 @@
-# React + TypeScript + Vite
+# Cartographers helper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This was thought as an add-on to the board game Cartographers.
 
-Currently, two official plugins are available:
+It is a roleplaying writing game consisting of a map in a sheet of paper where the player has to draw shapes to fulfill missions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![board](image.png)
 
-## Expanding the ESLint configuration
+These sheets are limited, so I wanted to make a helper iPad-friendly resource that could act as a sheet and where the player could play just as they would on paper. This would act as an extension of the board game and not replace it, so the players would still need the physical game to play, as it contains all the quests and other cards necessary.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![web](image-1.png)
 
-- Configure the top-level `parserOptions` property like this:
+The player can launch the website on their iPad, select terrains from the upper selector and place them on the map. They can also touch the coins to mark them as obtained.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+This would be the MVP as it allows the player a very similar experience to the paper but digitally.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+v1.1 will include:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Punctuation area for the player to fill out
+- Automatic mode that will allow the player to choose the mission they have active and the web will automatically fill out their punctuation for the round. 

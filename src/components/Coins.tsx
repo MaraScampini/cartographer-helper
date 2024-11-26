@@ -19,11 +19,9 @@ const Coins = () => {
       [index]: !prevState[index]
     }));
 
-
     setTimeout(() => {
       setIsClicking(false);
     }, 300);
-
   };
 
   useEffect(() => {
